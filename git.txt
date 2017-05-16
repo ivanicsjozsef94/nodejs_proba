@@ -1,0 +1,24 @@
+Git telepítése:
+git-scm.com -> git bash-t is telepíteni kell windowsra!
+
+parancssor: git --version
+utána a projekt mappájában el kell indítani: git init
+ezután egy rejtett fájl (.git) jön létre -> ezt csakis a git bash-ben látjuk! -> pl cd D:/nodejs/3-web-server (ez egy linux emulátor)
+ls -a
+projekt mappájában:
+git status //ezeket a fájlokat látja, de még nincsenek verziókövetve majd a git
+
+az automatikusan generált fájlokat (pl node_modules) nem adjuk hozzá a git repóhoz.
+git add package.json
+git status
+
+git add public
+git status 
+
+git add server.js
+git add views
+git status
+ezután csináljunk a main projektbe egy .gitignore-t, ez fogja megmondani, hogy mely modulokat ne kövesse!
+add hozzá a fájlhoz: node_modules/
+git status
+majd ezeket is add hozzá: server.log

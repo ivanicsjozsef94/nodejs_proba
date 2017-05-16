@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Help Page</title>
+    </head>
+    <body>
+        {{> header}}
+        <p>Some text here</p>
+
+        {{> footer}} <!-- footer.hbs beimportálása-->
+        <!--A weboldal nodemonnal ezeket a hbs.-eket nem fogja lerenderelni rendesen -> nodemon server.js -e js, hbs (-e azt mondja, hogy mely extensionökre figyeljen! Enélkül, ezek válto-
+        zásaira nem fog figyelni!) -->
+    </body>
+
+</html>
