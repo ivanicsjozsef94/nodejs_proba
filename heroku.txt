@@ -6,3 +6,18 @@ heroku login
 
 ssh generálása a herokuhoz (ha a projekt mappájában vagyunk, akkor hozzá fogja adni a git-nél már létrehozottat a herokuhoz!)
 heroku keys:add
+heroku keys
+heroku keys:remove //ez törölné a meglévő key-t!
+
+ssh -v git@heroku.com
+//a server.js-ben a port-ot módosítani kell dinamikusra! -> a heroku biztosít egy op.rendszer változót (env: linuy, SET: windows)
+//server.js: const port = process.env.PORT || 3000; -> ezzel megmondtuk, hogyha lokálisan futtatjuk, akkor nem létezik ez a változó, így használd a 3000-et!
+a package.json-ban a scripts-et át kell írni:
+"scripts": {
+    "test": "ugyanaz...",
+    "start": "node server.js" //ez mondja meg a herokunak, hogy melyik fájlt kell elindítania!
+}
+npm start //most már ezzel is elindul!
+npm test //még nem működik!
+
+git added . //. hozzá fogja adni az összes, még nem verziókövetett fájlt!

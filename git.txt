@@ -22,3 +22,36 @@ ezután csináljunk a main projektbe egy .gitignore-t, ez fogja megmondani, hogy
 add hozzá a fájlhoz: node_modules/
 git status
 majd ezeket is add hozzá: server.log
+majd végül: git add .gitignore
+
+git commit -m 'Initial commit' //a '' között lehet megmondani a commit megjegyzését
+
+
+//2. lépés: githubra feltöltés. Ehhez ssh kulcsot kell generálni
+git bashben kell megcsinálni a következő utasításokat!
+google: github ssh key
+https://help.github.com/articles/connecting-to-github-with-ssh/
+(saját projekt mappában vagyunk!)
+ssh key checkolása, hogy van-e?
+ls -al ~/.ssh //ssh könyvtár listázása
+ha már van kulcs (.._rsa...), akkor a következő lépés kihagyható!
+ssh-keygen -t rsa -b 4096 -C 'ivanicsjozsef94@gmail.com'
+ls -al ~/.ssh (id_rsa -> privát kulcs, ezt nem adjuk oda senkinek, id_rsa.pub a publikus kulcs)
+
+eval "$(ssh-agent -s)" //elindítja az ssh-agentet
+ssh-add ~/.ssh/id_rsa //a lokális gép most már ismerni fogja ezt a privát kulcsot
+
+github.com, account készítése
+az oldalon a settings->ssh and GPG keys -> new ssh key (title: bármi lehet)
+adding a new ssh key to your github account (windows)
+clip < ~/.ssh/id_rsa.pub //vágólapra másolja ennek a fájlnak a tartalmát!
+majd ezt be kell másolni a git ssh key helyére
+ssh -T git@github.com //ezzel le lehet ellenőrizni, hogy az ssh kulcs hozzá lett-e rendesen adva
+egyelőre nincs shell access!
+
+github.com-on új repository létrehozása:
+nodejs-proba a neve az új ablakban lévő parancsokat el kell végezni!
+
+Git szerver létrehozása: https://git-scm.com/book/it/v2/Git-on-the-Server-Setting-Up-the-Server
+Git user privilégium hozzáadása: https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps
+https://askubuntu.com/questions/487527/give-specific-user-permission-to-write-to-a-folder-using-w-notation
