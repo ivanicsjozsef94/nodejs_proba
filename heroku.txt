@@ -1,0 +1,8 @@
+heroku.com
+toolbelt.heroku.com oldalról letölteni.
+parancssor megnyitása
+heroku --help
+heroku login
+
+ssh generálása a herokuhoz (ha a projekt mappájában vagyunk, akkor hozzá fogja adni a git-nél már létrehozottat a herokuhoz!)
+heroku keys:add
